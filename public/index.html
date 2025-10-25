@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        input {
+            padding: 0.5rem;
+            width: 70%;
+        }
+
+        button {
+            padding: 0.5rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Todo App</h1>
+    <input id="todoInput" placeholder="新しいタスクを入力">
+    <button id="addBtn">追加</button>
+    <ul id="todoList"></ul>
+
+    <script>
+        const input = document.getElementById('todoInput');
+        const addBtn = document.getElementById('addBtn');
+        const list = document.getElementById('todoList');
+
+        addBtn.addEventListener('click', () => {
+            const value = input.value.trim();
+            if (!value) return;
+            const li = document.createElement('li');
+            li.textContent = value;
+
+            const delBtn = document.createElement('button');
+            delBtn.textContent = '削除';
+            delBtn.addEventListener('click', () => li.remove());
+
+            li.appendChild(delBtn);
+            list.appendChild(li);
+            input.value = '';
+        });
+    </script>
+</body>
+
+</html>
