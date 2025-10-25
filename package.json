@@ -7,7 +7,8 @@
     "scripts": {
         "dev": "nodemon src/index.js",
         "start": "node src/index.js",
-        "migrate": "node scripts/migrate.js"
+        "migrate": "node scripts/migrate.js",
+        "build": "echo no-build"
     },
     "dependencies": {
         "express": "^4.18.2",
